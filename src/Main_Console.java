@@ -1,9 +1,5 @@
-import com.sun.security.jgss.GSSUtil;
-import jdk.swing.interop.SwingInterOpUtils;
-
-import javax.swing.*;
 import java.util.Scanner;
-class Main {
+class Main_Console {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Cart cart = new Cart();
@@ -64,7 +60,7 @@ class Main {
                                 break;
                             }
                             else if (choice_1 == 2) {
-                                System.out.println("Do want to see available discounts?🤩(Y/N)\n");
+                                System.out.println("\nDo want to see available discounts?🤩(Y/N)");
                                 char option = sc.next().charAt(0);
                                 if (option == 'Y' || option == 'y') {
                                     while (true) {

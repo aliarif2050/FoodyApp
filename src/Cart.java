@@ -58,7 +58,7 @@ class Cart {
             for (FoodItem item : items) {
                 System.out.println("- " + item.getName() + " (₹" + item.getPrice() + ")");
             }
-            System.out.println("💵 TOTAL: ₹" + total);
+            System.out.println("💵 TOTAL: Rs" + total);
         }
     }
 
@@ -66,7 +66,7 @@ class Cart {
         if (items.isEmpty()) {
             System.out.println("🛒 Cart is empty. Add items first!");
         } else {
-            System.out.println("💰 Total Bill: ₹" + total);
+            System.out.println("💰 Total Bill: Rs" + total);
             System.out.println("✅ Order placed from " + currentRestaurant.name + "!");
             clearCart();
         }
@@ -87,11 +87,11 @@ class Cart {
 
     }
     public void applyCreditCardDiscount(CreditCard card){
-        total-= card.discount();
+        total-=card.discount();
         System.out.println("Discount of "+ card.discount() + " has been applied!");
     }
     public void applyDebitCardDiscount(DebitCard card){
-        total-= card.discount();
-        System.out.println("Discount of "+ card.discount() + " has been applied!");
+        total-=card.discount();
+        System.out.println("Discount of" +card.discount()+ " has been applied!");
     }
 }

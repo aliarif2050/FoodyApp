@@ -16,6 +16,6 @@ class FoodItem {
     }
 
     void display() {
-        System.out.println(name + " - ₹" + price);
+        System.out.println(name + " - Rs " + price);
     }
 }
