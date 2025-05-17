@@ -1,12 +1,10 @@
 class FoodItem {
     private String name;
     private double price;
-
     public FoodItem(String name, double price) {
         this.name = name;
         this.price = price;
     }
-
     public String getName() {
         return name;
     }
@@ -14,7 +12,6 @@ class FoodItem {
     public double getPrice() {
         return price;
     }
-
     void display() {
         System.out.println(name + " - Rs " + price);
     }
