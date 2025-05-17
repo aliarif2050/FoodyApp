@@ -3,9 +3,12 @@ class Restaurant {
     String name;
     Menu menu;
     DesiMenu desi;
+
+    Restaurant(){
+        this.menu=new Menu();
+    }
     Restaurant(String name){
       this.name=name;
-      this.menu=new Menu();
     }
     public void addFoodItemToMenu(){
         menu.addFoodItems();
