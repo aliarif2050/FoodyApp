@@ -57,6 +57,7 @@ class Main_Console {
                             int choice_1 = sc.nextByte();
                             if (choice_1 == 1) {
                                 cart.checkout();
+                                discountCounter=0;
                                 break;
                             }
                             else if (choice_1 == 2) {
@@ -64,6 +65,10 @@ class Main_Console {
                                 char option = sc.next().charAt(0);
                                 if (option == 'Y' || option == 'y') {
                                     while (true) {
+                                        if(discountCounter==1){
+                                            System.out.println("Discount already Applied!😅");
+                                            break ;
+                                        }
                                         System.out.println("1.View Credit Card discounts");
                                         System.out.println("2.View Debit Card discounts");
                                         System.out.println("3.Don't have any of these😭");
@@ -78,10 +83,6 @@ class Main_Console {
                                                     discountCounter++;
                                                 cart.applyCreditCardDiscount(card);
                                                 break;
-                                                }
-                                                else {
-                                                    System.out.println("Discount already applied!");
-                                                    break;
                                                 }
                                             }
                                         } else if (choice_0 == 2) {
