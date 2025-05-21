@@ -6,45 +6,47 @@ class Menu {
     public Menu() {
         items = new ArrayList<>();
     }
-    void fastFoodRes(){
+
+    protected void addFastFoodItems() {
         items.add(new FoodItem("Patty Burger", 350));
         items.add(new FoodItem("Pizza", 1800));
         items.add(new FoodItem("Fries", 200));
         items.add(new FoodItem("Soda", 120));
     }
-    void addFoodItems(){
-        fastFoodRes();
+
+    public void addFoodItems() {
+        addFastFoodItems();
     }
-    void addFoodItems(FoodItem item){
+
+    public void addFoodItems(FoodItem item) {
         items.add(item);
     }
+
     public void displayMenu() {
         for (FoodItem item : items) {
             item.display();
         }
     }
+
+    public ArrayList<FoodItem> getItems() {
+        return items;
+    }
 }
-class DesiMenu extends Menu{
-     DesiMenu(){
+
+class DesiMenu extends Menu {
+    public DesiMenu() {
         super();
     }
-   void desiRes()
-   {
-       items.add(new FoodItem("Chicken Karahi(half)", 800));
-       items.add(new FoodItem("Mutton Karahi(half)", 1100));
-       items.add(new FoodItem("Lassi", 150));
-       items.add(new FoodItem("Aloo Paratha", 120));
-   }
-    void addFoodItems(){
-        desiRes();
-    }
-    @Override
-    void addFoodItems(FoodItem item) {
-        super.addFoodItems(item);
+
+    protected void addDesiItems() {
+        items.add(new FoodItem("Chicken Karahi(half)", 800));
+        items.add(new FoodItem("Mutton Karahi(half)", 1100));
+        items.add(new FoodItem("Lassi", 150));
+        items.add(new FoodItem("Aloo Paratha", 120));
     }
 
     @Override
-    public void displayMenu() {
-        super.displayMenu();
+    public void addFoodItems() {
+        addDesiItems();
     }
 }

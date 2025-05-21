@@ -1,43 +1,52 @@
 import java.util.ArrayList;
-class Restaurant {
-    String name;
-    Menu menu;
-    DesiMenu desi;
 
-    Restaurant(String name){
-      this.name=name;
-      this.menu=new Menu();
+class Restaurant {
+    private String name;
+    protected Menu menu;
+
+    public Restaurant(String name) {
+        this.name = name;
+        this.menu = new Menu();
     }
-    public void addFoodItemToMenu(){
+
+    public String getName() {
+        return name;
+    }
+
+    public void addFoodItemToMenu() {
         menu.addFoodItems();
     }
 
     public void addFoodItemToMenu(FoodItem item) {
         menu.addFoodItems(item);
     }
+
     public void displayMenu() {
         System.out.println("========================");
         System.out.println("Menu for " + name + ":");
         menu.displayMenu();
         System.out.println("========================");
-        }
     }
 
- class DesiRestaurant extends Restaurant{
-    DesiRestaurant(String name){
+    public Menu getMenu() {
+        return menu;
+    }
+}
+
+class DesiRestaurant extends Restaurant {
+
+    public DesiRestaurant(String name) {
         super(name);
-        this.desi= new DesiMenu();
+        this.menu = new DesiMenu();
     }
-     public void addFoodItemToMenu(){
-         desi.addFoodItems();
-     }
-     public void addFoodItemToMenu(FoodItem item) {
-         desi.addFoodItems(item);
+
+    @Override
+    public void addFoodItemToMenu() {
+        menu.addFoodItems();
     }
-     public void displayMenu() {
-         System.out.println("========================");
-         System.out.println("Menu for " + name + ":");
-         desi.displayMenu();
-         System.out.println("========================");
-     }
- }
+
+    @Override
+    public void addFoodItemToMenu(FoodItem item) {
+        menu.addFoodItems(item);
+    }
+}

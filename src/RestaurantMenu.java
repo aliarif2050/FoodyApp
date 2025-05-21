@@ -1,5 +1,3 @@
-import java.util.Random;
-
 class RestaurantMenu {
 
     public static Restaurant createKFCMenu() {
@@ -37,19 +35,19 @@ class RestaurantMenu {
         desiRestaurant.addFoodItemToMenu(new FoodItem("Soda", 120));
         return desiRestaurant;
     }
-    public static Restaurant createQuettaCafeMenu(){
-        Restaurant QuettaCafe = new DesiRestaurant("Quetta Cafe");
-        QuettaCafe.addFoodItemToMenu(new FoodItem("Chicken Paratha",200));
-        QuettaCafe.addFoodItemToMenu(new FoodItem("Chicken Cheese Paratha",250));
-        QuettaCafe.addFoodItemToMenu(new FoodItem("Mix Paratha",180));
-        QuettaCafe.addFoodItemToMenu(new FoodItem("Special Chai",90));
-        return QuettaCafe;
 
+    public static Restaurant createQuettaCafeMenu() {
+        Restaurant quettaCafe = new DesiRestaurant("Quetta Cafe");
+        quettaCafe.addFoodItemToMenu(new FoodItem("Chicken Paratha", 200));
+        quettaCafe.addFoodItemToMenu(new FoodItem("Chicken Cheese Paratha", 250));
+        quettaCafe.addFoodItemToMenu(new FoodItem("Mix Paratha", 180));
+        quettaCafe.addFoodItemToMenu(new FoodItem("Special Chai", 90));
+        return quettaCafe;
     }
-    public static Restaurant createRanchersMenu(){
+
+    public static Restaurant createRanchersMenu() {
         Restaurant ranchers = new Restaurant("Ranchers");
-        ranchers.addFoodItemToMenu(new FoodItem("Krnuch Burgers",250));
+        ranchers.addFoodItemToMenu(new FoodItem("Krnuch Burgers", 250));
         return ranchers;
     }
 }
-

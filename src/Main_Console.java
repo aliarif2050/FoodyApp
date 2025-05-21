@@ -4,10 +4,10 @@ class Main_Console {
         Scanner sc = new Scanner(System.in);
         Cart cart = new Cart();
         int discountCounter=0;
-        System.out.println("\t\t\t\tFOODY!");// we'll discuss name guys
+        System.out.println("\t\t\t\tFOODY!");
         System.out.println("Loading...");
         try {
-            Thread.sleep(2000); // 2 seconds delay
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -21,7 +21,7 @@ class Main_Console {
                     RestaurantSelector.showRestaurantMenus(sc, cart);
                     break;
                 case 2:
-                    if (cart.cartState() == 0) {
+                    if (cart.isCartEmpty() == 0) {
                         break;}
                     else {
                         while (true) {
@@ -35,7 +35,7 @@ class Main_Console {
                                  cart.removeItem(itemName);
                                 }
                                 else if (choice0 == 2) {
-                                    System.out.println("Sure?🥲(Y or N)");
+                                    System.out.println("Sure?(Y or N)");
                                     char clear_cart = sc.next().charAt(0);
                                            if (clear_cart == 'y' || clear_cart == 'Y') {
                                             cart.clearCart();
@@ -46,7 +46,7 @@ class Main_Console {
                     }
                     break;
                 case 3:
-                    if (cart.cartState() == 0) {
+                    if (cart.isCartEmpty() == 0) {
                         break;
                     } else
                     {
@@ -61,24 +61,24 @@ class Main_Console {
                                 break;
                             }
                             else if (choice_1 == 2) {
-                                System.out.println("\nDo want to see available discounts?🤩(Y/N)");
+                                System.out.println("\nDo want to see available discounts?(Y/N)");
                                 char option = sc.next().charAt(0);
                                 if (option == 'Y' || option == 'y') {
                                     while (true) {
                                         if(discountCounter==1){
-                                            System.out.println("Discount already Applied!😅");
+                                            System.out.println("Discount already Applied!");
                                             break ;
                                         }
                                         System.out.println("1.View Credit Card discounts");
                                         System.out.println("2.View Debit Card discounts");
-                                        System.out.println("3.Don't have any of these😭");
+                                        System.out.println("3.Don't have any of these");
                                         int choice_0 = sc.nextInt();
                                         if (choice_0 == 1) {
                                             System.out.println("HBL = Rs200\nMCB = Rs300\nAskari = 100\nDo you have card from any of these?(Y/N)");
                                             char option_0 = sc.next().charAt(0);
                                             if (option_0 == 'Y' || option_0 == 'y') {
                                                 CreditCard card = new CreditCard();
-                                                card.setdata();
+                                                card.setData();
                                                 if(discountCounter==0){
                                                     discountCounter++;
                                                 cart.applyCreditCardDiscount(card);
@@ -90,7 +90,7 @@ class Main_Console {
                                             char option_1 = sc.next().charAt(0);
                                             if (option_1 == 'Y' || option_1 == 'y') {
                                                 DebitCard card = new DebitCard();
-                                                card.setdata();
+                                                card.setData();
                                                 if(discountCounter==0) {
                                                     discountCounter++;
                                                     cart.applyDebitCardDiscount(card);
@@ -114,15 +114,13 @@ class Main_Console {
                     }
                     break;
                 case 4:
-                    System.out.println("Thanks!, See you soon🫡");
+                    System.out.println("Thanks!, See you soon");
                     break outer;
                 default:
-                    System.out.println("Kindly choose from given option😌");
+                    System.out.println("Kindly choose from given option");
                     break;
             }
 
         }
     }
 }
-
-

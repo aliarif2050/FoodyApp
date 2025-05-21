@@ -1,13 +1,14 @@
 import java.util.Scanner;
 
 public class RestaurantSelector {
+
     public static void showRestaurantMenus(Scanner sc, Cart cart) {
         boolean loop = true;
         Restaurant kfc = RestaurantMenu.createKFCMenu();
         Restaurant pizzaHut = RestaurantMenu.createPizzaHutMenu();
         Restaurant mcDonalds = RestaurantMenu.createMcDonaldsMenu();
         Restaurant desiRestaurant = RestaurantMenu.createDesiRestaurantMenu();
-        Restaurant QuettaCafe = RestaurantMenu.createQuettaCafeMenu();
+        Restaurant quettaCafe = RestaurantMenu.createQuettaCafeMenu();
 
         while (loop) {
             loop = false;
@@ -29,7 +30,7 @@ public class RestaurantSelector {
                     handleRestaurantOrdering(desiRestaurant, sc, cart);
                     break;
                 case 5:
-                    handleRestaurantOrdering(QuettaCafe,sc,cart);
+                    handleRestaurantOrdering(quettaCafe, sc, cart);
                     break;
                 default:
                     System.out.println("Invalid choice! Please select a valid restaurant.");
@@ -40,31 +41,21 @@ public class RestaurantSelector {
 
     private static void handleRestaurantOrdering(Restaurant restaurant, Scanner sc, Cart cart) {
         restaurant.displayMenu();
-        System.out.println("Wanna order something??🤤 (Y/N)");
+        System.out.println("Would you like to order something? (Y/N)");
         char option = sc.next().charAt(0);
         if (option == 'Y' || option == 'y') {
             cart.startOrder(restaurant);
             while (true) {
-                System.out.println("What would u like to eat from " + restaurant.name + " menu?🧐");
+                System.out.println("What would you like to eat from " + restaurant.getName() + " menu?");
                 sc.nextLine();
                 String select = sc.nextLine();
                 boolean found = false;
 
-                if (restaurant instanceof DesiRestaurant) {
-                    for (FoodItem item : restaurant.desi.items) {
-                        if (item.getName().equalsIgnoreCase(select)) {
-                            cart.addItem(item, restaurant);
-                            found = true;
-                            break;
-                        }
-                    }
-                } else {
-                    for (FoodItem item : restaurant.menu.items) {
-                        if (item.getName().equalsIgnoreCase(select)) {
-                            cart.addItem(item, restaurant);
-                            found = true;
-                            break;
-                        }
+                for (FoodItem item : restaurant.getMenu().getItems()) {
+                    if (item.getName().equalsIgnoreCase(select)) {
+                        cart.addItem(item, restaurant);
+                        found = true;
+                        break;
                     }
                 }
 
@@ -72,7 +63,7 @@ public class RestaurantSelector {
                     System.out.println("Item not found!");
                 }
 
-                System.out.println("Want to order something else? 🤤 (Y/N)");
+                System.out.println("Want to order something else? (Y/N)");
                 char choice = sc.next().charAt(0);
                 if (choice != 'Y' && choice != 'y') break;
             }
